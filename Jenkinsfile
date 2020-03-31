@@ -202,9 +202,7 @@ spec:
                       --verbose \
                       -VV
 
-                    echo "IMAGE_VERSION=$(git describe --abbrev=0 --tags)" > ./env-config
                     
-
                     cat ./env-config
                 '''
             }
