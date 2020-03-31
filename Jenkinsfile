@@ -181,11 +181,7 @@ spec:
         container(name: 'ibmcloud', shell: '/bin/bash') {
             stage('Build image') {
                 sh '''#!/bin/bash
-                    . ./env-config
-
-                    echo -e "=========================================================================================="
-                    echo -e "BUILDING CONTAINER IMAGE: ${REGISTRY_URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}:${IMAGE_VERSION}"
-                    ibmcloud cr build -t ${REGISTRY_URL}/${REGISTRY_NAMESPACE}/${IMAGE_NAME}:${IMAGE_VERSION} .
+                    
                 '''
             }
             stage('Deploy to DEV env') {
