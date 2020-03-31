@@ -181,7 +181,8 @@ spec:
                     git checkout ${BRANCH}
                     git branch --set-upstream-to=origin/${BRANCH} ${BRANCH}
 
-                    git config --global user.name "Jenkins Pipeline"
+                    git config --global user.name "rbarcia"
+                    git config --global user.password "WZj5bo1vHKZu568Lo8Yzaf7ok_ykjK45ztR4wQbaWy8"
                     git config --global user.email "jenkins@ibmcloud.com"
                     git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USER; echo password=\\$GIT_AUTH_PWD; }; f"
 
