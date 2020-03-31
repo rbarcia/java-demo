@@ -203,7 +203,7 @@ spec:
                       -VV
 
                     echo "IMAGE_VERSION=$(git describe --abbrev=0 --tags)" > ./env-config
-                    echo "IMAGE_NAME=$(basename -s .git `git config --get remote.origin.url` | tr '[:upper:]' '[:lower:]' | sed 's/_/-/g')" >> ./env-config
+                    
 
                     cat ./env-config
                 '''
