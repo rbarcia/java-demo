@@ -174,36 +174,7 @@ spec:
         container(name: 'node', shell: '/bin/bash') {
             stage('Tag release') {
                 sh '''#!/bin/bash
-                    set -x
-                    set -e
-
-                    git fetch origin ${BRANCH} --tags
-                    git checkout ${BRANCH}
-                    git branch --set-upstream-to=origin/${BRANCH} ${BRANCH}
-
-                    git config --global user.name "rbarcia"
-                    git config --global user.password "WZj5bo1vHKZu568Lo8Yzaf7ok_ykjK45ztR4wQbaWy8"
-                    git config --global user.email "jenkins@ibmcloud.com"
-                    git config --local credential.helper "!f() { echo username=\\$GIT_AUTH_USER; echo password=\\$GIT_AUTH_PWD; }; f"
-
-                    mkdir -p ~/.npm
-                    npm config set prefix ~/.npm
-                    export PATH=$PATH:~/.npm/bin
-                    npm i -g release-it
-
-                    if [[ "${BRANCH}" != "master" ]]; then
-                        PRE_RELEASE="--preRelease=${BRANCH}"
-                    fi
-
-                    release-it patch ${PRE_RELEASE} \
-                      --ci \
-                      --no-npm \
-                      --no-git.requireCleanWorkingDir \
-                      --verbose \
-                      -VV
-
                     
-                    cat ./env-config
                 '''
             }
         }
